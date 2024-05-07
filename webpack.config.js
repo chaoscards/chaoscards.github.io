@@ -4,22 +4,22 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     devtool: 'eval-source-map',
-    entry: './src/index.js',
+    entry: './src/index.ts',
     output: {
-        path: path.join(__dirname, '/static'),
+        path: __dirname,
         filename: 'bundle.js'
     },
     plugins: [
-        new HTMLWebpackPlugin({template: 'index.html'}),
+        new HTMLWebpackPlugin({template: './template.html'}),
     ],
     module: {
         rules: [
             {
-                test: /.js$/,
+                test: /.ts$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: 'babel-loader',
-                    options: {presets: ['@babel/preset-env']}
+                    loader: 'ts-loader',
+                    // options: {presets: ['@babel/preset-env']}
                 }
             },
             {
