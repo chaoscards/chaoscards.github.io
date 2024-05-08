@@ -9,6 +9,7 @@ module.exports = {
         path: __dirname,
         filename: 'bundle.js'
     },
+    resolve: {extensions: ['.ts', '.tsx']},
     plugins: [
         new HTMLWebpackPlugin({template: './template.html'}),
     ],
@@ -19,7 +20,14 @@ module.exports = {
                 exclude: /node_modules/,
                 use: {
                     loader: 'ts-loader',
-                    // options: {presets: ['@babel/preset-env']}
+                }
+            },
+            {
+                test: /.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {presets: ['@babel/preset-env']}
                 }
             },
             {

@@ -1,4 +1,9 @@
 
-let root:HTMLElement = document.getElementById("root") as HTMLElement;
+import { Root } from "./render";
+import { Bubble } from "./bubble";
 
-root.innerHTML = "test";
+const root = new Root();
+
+root.children.push(new Bubble())
+
+root.render();
