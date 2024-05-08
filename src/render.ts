@@ -7,11 +7,10 @@ export interface Renderable {
 
 export class Root implements Renderable{
 
-    id:string;
-    children:Renderable[];
+    id:string = "root";
+    children:Renderable[] = [];
 
-    constructor(id:string="root") {
-        this.id = id
+    constructor() {
     }
 
     render(_:HTMLElement=null): void {
